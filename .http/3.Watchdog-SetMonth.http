@@ -1,0 +1,36 @@
+@env = dev
+
+#@MSP_Server_Address = http://mitmproxy:8080/1/
+@MSP_Server_Address = http://localhost/1/
+@Username = robot
+
+POST {{MSP_Server_Address}}/api/User/RequestSession
+Accept: application/json
+#Accept-Encoding: gzip, deflate, br
+Accept-Encoding: identity
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+
+build_timestamp=&user_name={{Username}}&country_password=test&country_id=1
+
+> {%
+    client.global.set("ApiAccessToken", response.body.payload.api_access_token);
+    client.global.set("ApiAccessRenewToken", response.body.payload.api_refresh_token);
+%}
+
+###
+
+@MSPChallenge_Simulation_Example_HostAddress = http://localhost:5026
+@TargetMonth = 4
+@GameSessionToken = 101207526825000961
+
+POST {{MSPChallenge_Simulation_Example_HostAddress}}/Watchdog/SetMonth
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Type: application/json
+
+{
+  "month": {{TargetMonth}},
+  "game_session_token": "{{GameSessionToken}}"
+}

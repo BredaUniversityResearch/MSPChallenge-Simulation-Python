@@ -1,0 +1,16 @@
+
+# after installation of conda, sometimes it's not fully initialized in the terminal. You can run:
+conda init
+
+# to create a python environment after installing conda through Miniconda or Anaconda:
+conda create --name pyenv_MSPC python=3.10
+
+# you can list the environments in the machine:
+conda info --envs
+
+# To activate this environment, use:
+conda activate pyenv_MSPC
+
+# To deactivate an active environment, use:
+conda deactivate
+
