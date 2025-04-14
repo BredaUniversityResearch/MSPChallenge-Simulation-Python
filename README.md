@@ -1,64 +1,72 @@
-# ⚙️ Python Environment Setup & Technology Stack Mapping
+# 🛰️ MSP Challenge – External Watchdog Simulation Example
 
-This guide provides instructions for setting up the Python environment and outlines the equivalent Python stack for a C#-style backend system. The application involves components such as REST APIs, asynchronous task handling, event-driven simulation, and a state machine.
-
----
-
-## 🐍 Python Version Requirement
-
-> ✅ **Required Version**: `Python 3.12.9`
-
-Before proceeding, make sure that you have **Python 3.12.9** installed on your system. You can [download it from the official Python site](https://www.python.org/downloads/release/python-3129/).
-
-> ⚠️ Using other versions may lead to incompatibility issues with libraries used in the project.
+This repository contains an **example implementation** of an *external watchdog server* that integrates with the [MSP Challenge](https://www.mspchallenge.info/) simulation platform. It showcases how to build an external simulation that connects to the MSP Challenge server and contributes simulated KPI data.
 
 ---
 
-## 🧪 Create a Virtual Environment (Windows)
+## 🧭 Project Overview
 
-To keep dependencies isolated and reproducible, it's recommended to create a **virtual environment** inside your project directory.
+### 🌊 About MSP Challenge
 
-1. Open a terminal or PowerShell window.
-2. Navigate to your project folder.
-3. Run the following command to create a virtual environment:
+[MSP Challenge](https://www.mspchallenge.info/) is a simulation platform designed to support **maritime spatial planning** through interactive, science-based tools. It consists of:
+
+- A **server**, which hosts simulations and manages game sessions.
+- A **client**, used by stakeholders to plan and evaluate maritime strategies.
+
+Key server simulations include:
+- [Ecology (MEL & EwE)](https://community.mspchallenge.info/wiki/Ecosystem_simulation_(MEL_%26_EwE))
+- [Energy (CEL)](https://community.mspchallenge.info/wiki/Energy_simulation_(CEL))
+- [Shipping (SEL)](https://community.mspchallenge.info/wiki/Shipping_simulation_(SEL))
+
+As of version [5.1 (March 2025)](https://github.com/BredaUniversityResearch/MSPChallenge-Server/tags), the platform supports **external simulations** via a plugin system for *watchdog services*.
+
+### ☀️ Example: Sun Hours Watchdog
+
+This example implements a simulation that reports **sun hours per country** as KPIs each month. It demonstrates how to:
+- Connect to a local MSP Challenge server
+- Handle simulation events (setup, simulate, report)
+- Send KPI results to the server using a REST API
+
+A full walkthrough and installation instructions can be found in the original C# project ([MSP Challenge Simulation Example](https://github.com/BredaUniversityResearch/MSPChallenge-Simulation-Example/blob/main/README.md)).
+
+---
+
+## ⚙️ Python Stack Overview (for Reimplementation)
+
+Although the example is written in C#, a Python equivalent stack is also documented here to help replicate or port similar simulation behavior in Python.
+
+### 🐍 Python Version Requirement
+
+> ✅ Required version: `Python 3.12.9`
+
+Install [Python 3.12.9](https://www.python.org/downloads/release/python-3129/) before proceeding.
+
+---
+
+### 🧪 Setting up a Python Environment (Windows)
+
+1. Open a terminal inside the project directory.
+2. Create a virtual environment:
 
 ```bash
 python -m venv .venv
 ```
 
-This will create a new folder named `.venv` in your current directory, containing a standalone Python environment.
-
----
-
-## 🚀 Activate the Virtual Environment (Windows)
-
-To activate the environment, run:
+3. Activate the environment:
 
 ```bash
 .\.venv\Scripts\Activate
 ```
 
-After activation, your terminal prompt should change to show the environment is active (e.g., it may show `(.venv)`).
-
----
-
-## 📦 Install Project Requirements
-
-Once the environment is activated, install the required dependencies listed in `requirements.txt`:
+4. Install required dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-This will install all the necessary libraries for running the project.
-
 ---
 
-## 🧰 C# to Python Feature Mapping
-
-This application was initially inspired by C#-based architectures (e.g., ASP.NET Core) and has been translated into Python using modern, equivalent tools.
-
-Below is a mapping of key C# features to their Python counterparts:
+### 🔁 C# to Python Feature Mapping
 
 | 💻 C# Feature                          | 🐍 Python Equivalent                                                                 |
 |----------------------------------------|--------------------------------------------------------------------------------------|
@@ -73,12 +81,40 @@ Below is a mapping of key C# features to their Python counterparts:
 
 ---
 
+## 🚀 Getting Started with the Example Watchdog
+
+### 📦 Prerequisites
+
+1. Install [MSP Challenge Server 5.1+](https://github.com/BredaUniversityResearch/MSPChallenge-Server) using Docker
+2. Install [MSP Challenge Client 5.1+](https://github.com/BredaUniversityResearch/MSPChallenge-Client/releases)
+3. Launch and test the Server Manager: [http://localhost/manager](http://localhost/manager)
+
+### 📂 Installation Steps
+
+1. Download the [latest release](https://github.com/BredaUniversityResearch/MSPChallenge-Simulation-Example/releases) — **do not clone** the repo.
+2. Copy contents into your own repo for custom simulation development.
+3. Open the `.csproj` in Visual Studio or Rider.
+4. Run the project to generate a `.env.local` file with a unique `SERVER_ID`.
+5. Register the watchdog in the [Server Manager settings](http://localhost/manager/setting) with this ID and connection details.
+6. Create a new game session and verify that the server connects to your watchdog.
+7. View KPI results in the dashboard once simulations run.
+
+👉 More technical details, usage guides, and testing tools are provided in the full README within the repository.
+
+---
+
 ## 🧪 Summary
 
-By combining these tools, you can replicate many architectural and runtime behaviors from a C#-based backend within a modern Python ecosystem — including:
-- RESTful APIs with FastAPI  
-- Reactive simulations using state machines and asyncio  
-- Event-driven logic and task scheduling  
-- Strong data modeling and validation with Pydantic  
-- Decoupled architecture using dependency injection  
+This project demonstrates:
+- How to create and register external simulations for MSP Challenge
+- How to structure a C# watchdog (or its Python port) for maritime simulations
+- How to report KPI values per simulation cycle to the MSP server
 
+For questions or contributions:
+- 💬 [Open an issue](https://github.com/BredaUniversityResearch/MSPChallenge-Simulation-Example/issues)
+- 🤝 [Read the contribution guidelines](https://community.mspchallenge.info/wiki/Community_Contribution)
+- 📫 [Contact us](https://community.mspchallenge.info/wiki/Contact_us)
+
+---
+
+Let me know if you'd like this structured as a multi-file README set or exported to PDF!
