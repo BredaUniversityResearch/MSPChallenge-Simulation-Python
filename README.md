@@ -35,7 +35,7 @@ This will create a new folder named `.venv` in your current directory, containin
 To activate the environment, run:
 
 ```bash
-.\.venv\Scriptsctivate
+.\.venv\Scripts\Activate
 ```
 
 After activation, your terminal prompt should change to show the environment is active (e.g., it may show `(.venv)`).
