@@ -33,7 +33,7 @@ A full walkthrough and installation instructions can be found in the original C#
 
 ## ⚙️ Python Stack Overview (for Reimplementation)
 
-Although the example is written in C#, a Python equivalent stack is also documented here to help replicate or port similar simulation behavior in Python.
+This project is a full Python equivalent implementation of the original C# sun hours example.
 
 ### 🐍 Python Version Requirement
 
@@ -93,11 +93,10 @@ pip install -r requirements.txt
 
 1. Download the [latest release](https://github.com/BredaUniversityResearch/MSPChallenge-Simulation-Example/releases) — **do not clone** the repo.
 2. Copy contents into your own repo for custom simulation development.
-3. Open the `.csproj` in Visual Studio or Rider.
-4. Run the project to generate a `.env.local` file with a unique `SERVER_ID`.
-5. Register the watchdog in the [Server Manager settings](http://localhost/manager/setting) with this ID and connection details.
-6. Create a new game session and verify that the server connects to your watchdog.
-7. View KPI results in the dashboard once simulations run.
+3. Run the `program_manager.py` in command line (**py program_manager.py**). That will generate a `.env.local` file with a unique `SERVER_ID`.
+4. Register the watchdog in the [Server Manager settings](http://localhost/manager/setting) with this ID and connection details.
+5. Create a new game session and verify that the server connects to your watchdog.
+6. View KPI results in the dashboard once simulations run.
 
 👉 More technical details, usage guides, and testing tools are provided in the full README within the repository.
 
