@@ -1,6 +1,6 @@
-# 🛰️ MSP Challenge – External Watchdog Simulation Example
+# 🛰️ MSP Challenge – External Watchdog Simulation Example in Python
 
-This repository contains an **example implementation** of an *external watchdog server* that integrates with the [MSP Challenge](https://www.mspchallenge.info/) simulation platform. It showcases how to build an external simulation that connects to the MSP Challenge server and contributes simulated KPI data.
+
 
 ---
 
@@ -8,7 +8,7 @@ This repository contains an **example implementation** of an *external watchdog 
 
 ### 🌊 About MSP Challenge
 
-[MSP Challenge](https://www.mspchallenge.info/) is a simulation platform designed to support **maritime spatial planning** through interactive, science-based tools. It consists of:
+[MSP Challenge](https://www.mspchallenge.info/) is a simulation platform designed to support **maritime spatial planning** through interactive, science-based tools. This repository contains an **example implementation** of an *external watchdog server* that integrates with the [MSP Challenge](https://www.mspchallenge.info/) simulation platform. It showcases how to build an external simulation that connects to the MSP Challenge server and contributes simulated KPI data. Overall, the MSP Challenge consists of:
 
 - A **server**, which hosts simulations and manages game sessions.
 - A **client**, used by stakeholders to plan and evaluate maritime strategies.
