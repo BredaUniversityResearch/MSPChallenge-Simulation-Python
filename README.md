@@ -116,4 +116,3 @@ For questions or contributions:
 
 ---
 
-Let me know if you'd like this structured as a multi-file README set or exported to PDF!
